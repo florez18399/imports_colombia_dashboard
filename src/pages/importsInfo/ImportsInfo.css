@@ -1,0 +1,23 @@
+.imports-info__table {
+  padding: 2rem 10rem;
+  height: 60rem;
+}
+
+.imports-info__head {
+  padding: 0.5rem;
+  display: flex;
+}
+
+.imports-info__controls {
+  width: 50%;
+  padding: 2%;
+}
+
+.imports-info__general {
+  width: 50%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  font-size: larger;
+  padding: 2%;
+}
