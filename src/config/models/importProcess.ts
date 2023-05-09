@@ -8,4 +8,8 @@ export default interface ImportProcess {
   paisgen: number;
   paispro: CountryInfo;
   vafodo: string;
+  flete: number;
+  cuidaexp: string;
+  luin: string;
+  baseiva: number;
 }

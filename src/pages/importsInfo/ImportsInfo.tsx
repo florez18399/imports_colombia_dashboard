@@ -21,8 +21,6 @@ const ImportsInfo = () => {
 
   const [loading, setLoading] = useState<boolean>(false);
 
-  const [minRange, setMinRange] = useState<number>(50);
-
   const [filterParams, setFilterParams] = useState({
     adua: "",
     paispro: "",
@@ -54,10 +52,6 @@ const ImportsInfo = () => {
       setAduanasList(data);
     });
   }, [filterParams]);
-
-  const handleOnRangeVafodoChange = (event: any) => {
-    setMinRange(event.target.value);
-  };
 
   const handleOnCountryProChange = (event: any) => {
     setFilterParams({ ...filterParams, paispro: event.target.value });
@@ -153,6 +147,10 @@ const ImportsInfo = () => {
                   <th>Aduana</th>
                   <th>País de producción</th>
                   <th>Valor en dólares</th>
+                  <th>Valor Flete ($US)</th>
+                  <th>Ciudad exportadora</th>
+                  <th>Ciudad de ingreso</th>
+                  <th>Base IVA ($COP)</th>
                 </tr>
               </thead>
               <tbody>
@@ -165,6 +163,10 @@ const ImportsInfo = () => {
                       <td>{importP.adua.name}</td>
                       <td>{importP.paispro.name}</td>
                       <td>{importP.vafodo}</td>
+                      <td>{importP.flete}</td>
+                      <td>{importP.cuidaexp}</td>
+                      <td>{importP.luin}</td>
+                      <td>{importP.baseiva}</td>
                     </tr>
                   ))}
               </tbody>

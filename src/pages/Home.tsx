@@ -2,6 +2,7 @@ import React from "react";
 import ImportsInfo from "./importsInfo/ImportsInfo";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import GraphByCountry from "./graphByCountry/GraphByCountry";
+import GraphByCity from "./graphByCity/GraphByCity";
 
 const Home = () => {
   return (
@@ -17,8 +18,11 @@ const Home = () => {
               <Link className="navbar-item" to="/">
                 Lista
               </Link>
-              <Link className="navbar-item" to="/graph">
+              <Link className="navbar-item" to="/graphByCountry">
                 Gráfico por país
+              </Link>
+              <Link className="navbar-item" to="/graphByCity">
+                Gráfico por ciudad
               </Link>
             </div>
 
@@ -35,7 +39,8 @@ const Home = () => {
         </nav>
         <Routes>
           <Route path="/" Component={ImportsInfo} />
-          <Route path="/graph" Component={GraphByCountry} />
+          <Route path="/graphByCountry" Component={GraphByCountry} />
+          <Route path="/graphByCity" Component={GraphByCity} />
         </Routes>
       </BrowserRouter>
     </div>

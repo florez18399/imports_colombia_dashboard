@@ -4,12 +4,6 @@ import CountByCountry from "../../config/models/countByCountry";
 import { getCountByCountry } from "../../config/apiClient";
 import { VictoryPie } from "victory-pie";
 
-const myData = [
-  { x: "Group A", y: 900 },
-  { x: "Group B", y: 400 },
-  { x: "Group C", y: 300 },
-];
-
 const randomColor = () => {
   const letters = "0123456789ABCDEF";
   let color = "#";
@@ -44,18 +38,33 @@ const GraphByCountry = () => {
       });
   }, []);
 
+  const getDataToChart = () => {
+    let totalVafodo = infoByCountry.reduce(
+      (acc, info) => acc + info.sum_vafodo,
+      0
+    );
+    return infoByCountry.map((info) => ({
+      x:
+        info.paispro__name +
+        `- ${Math.round((info.sum_vafodo * 100) / totalVafodo)} %`,
+      y: info.sum_vafodo,
+    }));
+  };
+
   return (
     <div className="graph_by_country">
       <h1>Porcentaje de VAFODO por país</h1>
       <div className="chart-container">
         {infoByCountry && (
           <VictoryPie
-            data={infoByCountry.map((info) => ({
-              x: info.paispro__name,
-              y: info.sum_vafodo,
-            }))}
+            data={getDataToChart()}
             colorScale={colors}
-            radius={100}
+            radius={80}
+            style={{
+              labels: {
+                fontSize: "8px",
+              },
+            }}
           />
         )}
       </div>
